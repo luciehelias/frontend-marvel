@@ -1,0 +1,43 @@
+header {
+  display: flex;
+  align-items: center;
+  height: 180px;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background-color: black;
+}
+
+header button {
+  background-color: #ed1d23;
+  border-radius: 5px;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  font-size: 20px;
+}
+
+.header-logo {
+  height: 180px;
+  width: 350px;
+  object-fit: contain;
+  background-color: black;
+}
+
+header nav {
+  display: flex;
+  gap: 40px;
+  color: #ed1d23;
+  font-size: 22px;
+}
+
+.header-icon {
+  color: #ed1d23;
+  font-size: 26px;
+}
+
+.header-connect {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
