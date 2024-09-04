@@ -14,6 +14,11 @@ header button {
   padding: 10px 20px;
   color: white;
   font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+header button:hover {
+  transform: scale(1.2);
 }
 
 .header-logo {

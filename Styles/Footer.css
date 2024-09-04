@@ -1,6 +1,20 @@
-Footer {
+footer {
   height: 100px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
   color: white;
   font-size: 18px;
+  color: #ed1d23;
+}
+
+.header-link {
+  display: inline-block;
+  color: #ed1d23;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.header-link:hover {
+  font-size: 24px;
 }
