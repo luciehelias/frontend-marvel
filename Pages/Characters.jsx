@@ -6,6 +6,8 @@ import { FaSearch } from "react-icons/fa";
 
 import "../Styles/Characters.css";
 
+import SearchBar from "../Components/SearchBar";
+
 const Characters = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [characters, setCharacters] = useState();
@@ -32,14 +34,17 @@ const Characters = () => {
     <span>En cours de chargement</span>
   ) : (
     <main>
-      <div className="character-search-bar">
+      <SearchBar setSearchElement={setSearchCharacter} name="personnage" />
+
+      {/* TO DELETE IF SEARCH BAR WORKS */}
+      {/* <div className="character-search-bar">
         <FaSearch className="search-icon" />
         <input
           type="text"
           placeholder="Recherche des articles"
           onChange={(e) => setSearchCharacter(e.target.value)}
         />
-      </div>
+      </div> */}
       <h1>Characters</h1>
       <section>
         {characters.length > 0 ? (

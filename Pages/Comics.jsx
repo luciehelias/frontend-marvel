@@ -9,12 +9,15 @@ import "../Styles/Comics.css";
 const Comics = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [comics, setComics] = useState();
+  const [searchComic, setSearchComic] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/comics?slimit=100"
+          `{http://localhost:3000/comics?${
+            searchCharacter ? `?name=${searchCharacter}` : ""
+          }`
         );
         setComics(response.data);
         setIsLoading(false);
@@ -23,16 +26,13 @@ const Comics = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [searchComic]);
 
   return isLoading ? (
     <span>En cours de chargement</span>
   ) : (
     <main>
-      <div className="comic-search-bar">
-        <FaSearch className="search-icon" />
-        <input type="text" placeholder="Recherche des articles" />
-      </div>
+      <SearchBar setSearchElement={setSearchComic} name="comic" />
       <h1>Comics</h1>
       <section>
         {comics.map((comic) => (
