@@ -1,3 +1,5 @@
+import { FaSearch } from "react-icons/fa";
+
 const SearchBar = ({ setSearchElement, name }) => {
   return (
     <div className="search-bar">
