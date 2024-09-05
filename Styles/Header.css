@@ -46,3 +46,8 @@ header nav {
   align-items: center;
   gap: 20px;
 }
+
+.header-link {
+  text-decoration: none;
+  color: #ed1d23;
+}

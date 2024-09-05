@@ -1,6 +1,7 @@
 import "../Styles/Header.css";
 import logo from "../src/assets/logo.svg";
 import { GoHeartFill } from "react-icons/go";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -11,8 +12,12 @@ const Header = () => {
       </div>
       <img src={logo} alt="logo marvel" className="header-logo" />
       <nav>
-        <span>Personnages</span>
-        <span>Comics</span>
+        <Link to={"/characters"} className="header-link">
+          <span>Personnages</span>
+        </Link>
+        <Link to={"/comics"} className="header-link">
+          <span>Comics</span>
+        </Link>
       </nav>
     </header>
   );
