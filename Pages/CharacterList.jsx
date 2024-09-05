@@ -45,7 +45,7 @@ const CharacterList = () => {
       </div> */}
       <h1>Characters</h1>
       <section>
-        {characters.length > 0 ? (
+        {characters.length ? (
           characters.map((character) => (
             <Card element={character} name="character" />
 

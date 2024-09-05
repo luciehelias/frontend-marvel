@@ -35,30 +35,34 @@ const ComicList = () => {
       <SearchBar setSearchElement={setSearchComic} name="comic" />
       <h1>Comics</h1>
       <section>
-        {comics.map((comic) => (
-          <Card element={comic} name="comic" />
+        {comics.length ? (
+          comics.map((comic) => (
+            <Card element={comic} name="comic" />
 
-          // {/* TO DELETE IF CARD WORKS */}
-          // <div key={comic.id}>
-          //   <Link to={`/comic/${comic.id}`}>
-          //     <div className="comic">
-          //       <div className="comic-card">
-          //         <div>
-          //           <img src={comic.thumbnail} alt="photo du comic" />
-          //         </div>
-          //         <div className="comic-card-infos">
-          //           <h2>{comic.title}</h2>
-          //           <p className="comic-description">{comic.description}</p>
-          //           <div className="comic-favorite">
-          //             <p>Ajouter en favoris</p>
-          //             <GoHeartFill className="icon" />
-          //           </div>
-          //         </div>
-          //       </div>
-          //     </div>
-          //   </Link>
-          // </div>
-        ))}
+            // {/* TO DELETE IF CARD WORKS */}
+            // <div key={comic.id}>
+            //   <Link to={`/comic/${comic.id}`}>
+            //     <div className="comic">
+            //       <div className="comic-card">
+            //         <div>
+            //           <img src={comic.thumbnail} alt="photo du comic" />
+            //         </div>
+            //         <div className="comic-card-infos">
+            //           <h2>{comic.title}</h2>
+            //           <p className="comic-description">{comic.description}</p>
+            //           <div className="comic-favorite">
+            //             <p>Ajouter en favoris</p>
+            //             <GoHeartFill className="icon" />
+            //           </div>
+            //         </div>
+            //       </div>
+            //     </div>
+            //   </Link>
+            // </div>
+          ))
+        ) : (
+          <p>Aucun comic ne correspond à votre recherche.</p>
+        )}
       </section>
     </main>
   );
