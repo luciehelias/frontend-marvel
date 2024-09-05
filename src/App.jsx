@@ -6,11 +6,19 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 
+import Comics from "../Pages/Comics";
+import Characters from "../Pages/Characters";
+
 const App = () => {
   return (
     <Router>
       <Header />
-      <Routes></Routes>
+      <Routes>
+        <Route path="/comics" element={<Comics />}></Route>
+        <Route path="/characters" element={<Characters />}></Route>
+        <Route></Route>
+        <Route></Route>
+      </Routes>
       <Footer />
     </Router>
   );
