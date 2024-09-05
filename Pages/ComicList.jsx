@@ -7,9 +7,23 @@ import SearchBar from "../Components/SearchBar";
 import Card from "../Components/Card";
 
 const ComicList = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [comics, setComics] = useState();
+  const [isLoading, setIsLoading] = useState(false);
+  // REMETTRE LE USESTATE à TRUE
+  const [comics, setComics] = useState("");
   const [searchComic, setSearchComic] = useState("");
+
+  const limit = 100;
+  const [pageNumber, setPageNumber] = useState(1);
+
+  const handlePageNumber = (sens) => {
+    if (sens === "next") {
+      setPageNumber(pageNumber + 1);
+    } else if (sens === "previous") {
+      if (pageNumber > 1) {
+        setPageNumber(pageNumber - 1);
+      }
+    }
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,7 +31,7 @@ const ComicList = () => {
         const response = await axios.get(
           `{http://localhost:3000/comics?${
             searchCharacter ? `?name=${searchCharacter}` : ""
-          }`
+          }?limit=${limit}?skip=${skip}`
         );
         setComics(response.data);
         setIsLoading(false);
@@ -25,15 +39,16 @@ const ComicList = () => {
         console.log(error.response);
       }
     };
-    fetchData();
+    // fetchData();
+    // DECOMMENTER
   }, [searchComic]);
 
   return isLoading ? (
     <span>En cours de chargement</span>
   ) : (
     <main>
-      <SearchBar setSearchElement={setSearchComic} name="comic" />
       <h1>Comics</h1>
+      <SearchBar setSearchElement={setSearchComic} name="comic" />
       <section>
         {comics.length ? (
           comics.map((comic) => (
@@ -64,6 +79,17 @@ const ComicList = () => {
           <p>Aucun comic ne correspond à votre recherche.</p>
         )}
       </section>
+      <div className="pagination">
+        {pageNumber > 1 && (
+          <>
+            <button onClick={() => handlePageNumber("previous")}>
+              Page précedente
+            </button>
+            <p>{`Page ${pageNumber}`}</p>
+          </>
+        )}
+        <button onClick={() => handlePageNumber("next")}>Page suivante </button>
+      </div>
     </main>
   );
 };
