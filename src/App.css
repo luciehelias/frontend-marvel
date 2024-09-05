@@ -1,4 +1,35 @@
 body {
   font-family: "Roboto Condensed", sans-serif;
-  background-color: white;
+  /* background-color: black; */
+  background-image: url("./assets/background-image.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 1280px;
+  text-align: center;
+}
+
+main h1 {
+  font-size: 60px;
+  color: #ed1d23;
+  margin: 40px 0;
+}
+
+main section {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+a {
+  text-decoration: none;
 }
