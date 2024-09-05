@@ -15,6 +15,7 @@ header button {
   color: white;
   font-size: 20px;
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 header button:hover {
