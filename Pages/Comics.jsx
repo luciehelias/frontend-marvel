@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { GoHeartFill } from "react-icons/go";
 
 const Comics = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -25,10 +27,19 @@ const Comics = () => {
       <h1>Comics</h1>
       <section>
         {comics.map((comic) => (
-          <div key={comic.id}>
-            <h2>{comic.title}</h2>
-            <p>{comic.description}</p>
-            <img src={comic.thumbnail} alt="" />
+          <div>
+            <div key={comic.id}>
+              <h2>{comic.title}</h2>
+              <p>{comic.description}</p>
+              <img src={comic.thumbnail} alt="" />
+            </div>
+            <Link to={`/comic/${comic.id}`}>
+              <button>En savoir plus</button>
+            </Link>
+            <div>
+              <p>Ajouter en favoris</p>
+              <GoHeartFill className="header-icon" />
+            </div>
           </div>
         ))}
       </section>
