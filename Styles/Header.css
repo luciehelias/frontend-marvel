@@ -51,3 +51,17 @@ header nav {
   text-decoration: none;
   color: #ed1d23;
 }
+
+.header-connect p {
+  color: #ed1d23;
+}
+
+.header-favorite {
+  display: flex;
+  align-items: center;
+}
+
+.header-favorite p {
+  margin-right: 20px;
+  font-size: 20px;
+}

@@ -33,7 +33,6 @@ const Comic = () => {
             <p>{comic.description}</p>
             <img src={comic.thumbnail} alt="" />
           </div>
-
           <div>
             <p>Ajouter en favoris</p>
             <GoHeartFill className="header-icon" />

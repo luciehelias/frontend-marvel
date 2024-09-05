@@ -12,7 +12,9 @@ const Comics = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/comics?skip=");
+        const response = await axios.get(
+          "http://localhost:3000/comics?slimit=100"
+        );
         setComics(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -29,24 +31,25 @@ const Comics = () => {
       <h1>Comics</h1>
       <section>
         {comics.map((comic) => (
-          <Link to={`/comic/${comic.id}`}>
-            <div key={comic.id} className="comic">
-              <div className="comic-card">
-                <div>
-                  <img src={comic.thumbnail} alt="photo du comic" />
-                </div>
-                <div className="comic-card-infos">
-                  <h2>{comic.title}</h2>
-                  <p className="comic-description">{comic.description}</p>
-
-                  <div className="comic-favorite">
-                    <p>Ajouter en favoris</p>
-                    <GoHeartFill className="comic-icon" />
+          <div key={comic.id}>
+            <Link to={`/comic/${comic.id}`}>
+              <div className="comic">
+                <div className="comic-card">
+                  <div>
+                    <img src={comic.thumbnail} alt="photo du comic" />
+                  </div>
+                  <div className="comic-card-infos">
+                    <h2>{comic.title}</h2>
+                    <p className="comic-description">{comic.description}</p>
+                    <div className="comic-favorite">
+                      <p>Ajouter en favoris</p>
+                      <GoHeartFill className="icon" />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </Link>
+            </Link>
+          </div>
         ))}
       </section>
     </main>

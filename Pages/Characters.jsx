@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { GoHeartFill } from "react-icons/go";
 
+import "../Styles/Characters.css";
+
 const Characters = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [characters, setCharacters] = useState();
@@ -28,18 +30,25 @@ const Characters = () => {
       <section>
         {characters.map((character) => (
           <div key={character.id}>
-            <div>
-              <h2>{character.name}</h2>
-              <p>{character.description}</p>
-              <img src={character.thumbnail} alt="" />
-            </div>
             <Link to={`/character/${character.id}`}>
-              <button>En savoir plus</button>
+              <div className="character">
+                <div className="character-card">
+                  <div>
+                    <img src={character.thumbnail} alt="photo du personnage" />
+                  </div>
+                  <div className="character-infos">
+                    <h2>{character.name}</h2>
+                    <p className="character-description">
+                      {character.description}
+                    </p>
+                    <div className="character-favorite">
+                      <p>Ajouter en favoris</p>
+                      <GoHeartFill className="icon" />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </Link>
-            <div>
-              <p>Ajouter en favoris</p>
-              <GoHeartFill className="header-icon" />
-            </div>
           </div>
         ))}
       </section>

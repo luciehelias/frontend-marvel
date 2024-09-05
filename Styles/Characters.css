@@ -1,4 +1,4 @@
-.comic {
+.character {
   display: flex;
   align-items: center;
   padding: 20px;
@@ -9,23 +9,23 @@
   height: 280px;
 }
 
-.comic-card {
+.character-card {
   display: flex;
 }
 
-.comic-card h2 {
+.character-card h2 {
   color: #ed1d23;
   margin-bottom: 30px;
   font-size: 20px;
 }
 
-.comic-card img {
+.character-card img {
   object-fit: cover;
   margin-right: 20px;
   width: 200px;
 }
 
-.comic-description {
+.character-description {
   color: wheat;
   text-align: justify;
   margin-bottom: 30px;
@@ -35,17 +35,19 @@
   height: 150px;
 }
 
-.comic-card-infos {
+.character-infos {
   display: flex;
   flex-direction: column;
   padding: 10px;
+  width: 260px;
 }
 
-.comic-favorite {
+.character-favorite {
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
-.comic-favorite p {
+.character-favorite p {
   color: #ed1d23;
 }

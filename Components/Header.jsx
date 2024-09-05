@@ -8,7 +8,10 @@ const Header = () => {
     <header>
       <div className="header-connect">
         <button>Connecte-toi</button>
-        <GoHeartFill className="header-icon" />
+        <div className="header-favorite">
+          <p>Favoris</p>
+          <GoHeartFill className="icon" />
+        </div>
       </div>
       <img src={logo} alt="logo marvel" className="header-logo" />
       <nav>
