@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { GoHeartFill } from "react-icons/go";
+import { FaSearch } from "react-icons/fa";
 
 import "../Styles/Comics.css";
 
@@ -28,6 +29,10 @@ const Comics = () => {
     <span>En cours de chargement</span>
   ) : (
     <main>
+      <div className="comic-search-bar">
+        <FaSearch className="search-icon" />
+        <input type="text" placeholder="Recherche des articles" />
+      </div>
       <h1>Comics</h1>
       <section>
         {comics.map((comic) => (
