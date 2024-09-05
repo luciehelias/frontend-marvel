@@ -8,7 +8,7 @@ const Footer = () => {
         <a
           href="https://www.lereacteur.io/"
           target="_blank"
-          className="header-link"
+          className="footer-link"
         >
           Le Reacteur
         </a>{" "}
@@ -16,7 +16,7 @@ const Footer = () => {
         <a
           href="https://github.com/luciehelias"
           target="_blank"
-          className="header-link"
+          className="footer-link"
         >
           Lucie Hélias
         </a>

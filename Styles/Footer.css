@@ -8,13 +8,13 @@ footer {
   color: #ed1d23;
 }
 
-.header-link {
+.footer-link {
   display: inline-block;
   color: #ed1d23;
   text-decoration: none;
   cursor: pointer;
 }
 
-.header-link:hover {
+.footer-link:hover {
   font-size: 24px;
 }
