@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { GoHeartFill } from "react-icons/go";
 
+import "../Styles/Comics.css";
+
 const Comics = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [comics, setComics] = useState();
@@ -27,20 +29,24 @@ const Comics = () => {
       <h1>Comics</h1>
       <section>
         {comics.map((comic) => (
-          <div key={comic.id}>
-            <div>
-              <h2>{comic.title}</h2>
-              <p>{comic.description}</p>
-              <img src={comic.thumbnail} alt="" />
+          <Link to={`/comic/${comic.id}`}>
+            <div key={comic.id} className="comic">
+              <div className="comic-card">
+                <div>
+                  <img src={comic.thumbnail} alt="photo du comic" />
+                </div>
+                <div className="comic-card-infos">
+                  <h2>{comic.title}</h2>
+                  <p className="comic-description">{comic.description}</p>
+
+                  <div className="comic-favorite">
+                    <p>Ajouter en favoris</p>
+                    <GoHeartFill className="comic-icon" />
+                  </div>
+                </div>
+              </div>
             </div>
-            <Link to={`/comic/${comic.id}`}>
-              <button>En savoir plus</button>
-            </Link>
-            <div>
-              <p>Ajouter en favoris</p>
-              <GoHeartFill className="header-icon" />
-            </div>
-          </div>
+          </Link>
         ))}
       </section>
     </main>
