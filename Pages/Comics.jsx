@@ -27,8 +27,8 @@ const Comics = () => {
       <h1>Comics</h1>
       <section>
         {comics.map((comic) => (
-          <div>
-            <div key={comic.id}>
+          <div key={comic.id}>
+            <div>
               <h2>{comic.title}</h2>
               <p>{comic.description}</p>
               <img src={comic.thumbnail} alt="" />
