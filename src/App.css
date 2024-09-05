@@ -13,7 +13,8 @@ main {
   flex-direction: column;
   margin: 0 auto;
   width: 1280px;
-  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
 main h1 {
@@ -41,4 +42,26 @@ h2 {
 .icon {
   color: #ed1d23;
   font-size: 30px;
+}
+
+.pagination p {
+  color: wheat;
+  margin: 0px 20px;
+  font-size: 12px;
+}
+
+.pagination button {
+  background-color: wheat;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  color: black;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
