@@ -3,26 +3,38 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { GoHeartFill } from "react-icons/go";
 
-import { Link } from "react-router-dom";
+import Card from "../Components/Card";
 
 const Character = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [character, setCharacter] = useState();
+  const [characterComics, setCharacterComics] = useState();
   const { id } = useParams();
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchCharacter = async () => {
       try {
         const response = await axios.get(
           `http://localhost:3000/character/${id}`
         );
         setCharacter(response.data);
-        setIsLoading(false);
       } catch (error) {
         console.log(error.response);
       }
     };
-    fetchData();
+
+    const fetchCharacterComics = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3000/comics/${id}`);
+        setCharacterComics(response.data);
+      } catch (error) {
+        console.log(error.response);
+      }
+    };
+    setIsLoading(true);
+    fetchCharacterComics();
+    fetchCharacter();
+    setIsLoading(false);
   }, [id]);
 
   return isLoading ? (
@@ -44,6 +56,11 @@ const Character = () => {
           <p>Ajouter en favoris</p>
           <GoHeartFill className="icon" />
         </div>
+      </section>
+      <section>
+        {characterComics.map((comic) => (
+          <Card element={comic} name="comic" />
+        ))}
       </section>
     </main>
   );
