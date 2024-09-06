@@ -1,4 +1,56 @@
+.character {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
 .character-infos {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 100px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.character-infos img {
+  border-radius: 50px;
+  width: 100%;
+}
+
+.character-comics-slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 30px;
+  padding: 10px;
+  flex-wrap: nowrap;
+  max-width: 1280px;
+  justify-content: flex-start;
+  scrollbar-width: none;
+}
+
+.character-infos-image {
+  position: relative;
+}
+
+.character-infos-image .icon {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+.character-comics-title {
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+
+.thunderbolt {
+  color: yellow;
+  font-size: 26px;
+  margin-left: 10px;
+}
+
+.character-name {
+  color: white;
 }

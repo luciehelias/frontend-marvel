@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import { GoHeartFill } from "react-icons/go";
 import { TiHeartOutline } from "react-icons/ti";
 
+import "../Styles/Comic.css";
+
 const Comic = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [comic, setComic] = useState();
@@ -26,18 +28,19 @@ const Comic = () => {
     <span>En cours de chargement</span>
   ) : (
     <main>
-      <h1>Comic</h1>
-      <section>
-        <div>
-          <div key={comic.id}>
-            <h2>{comic.title}</h2>
-            <p>{comic.description}</p>
-            <img src={comic.thumbnail} alt="" />
-          </div>
+      <h1 className="comic-name">{comic.title}</h1>
+      <section className="comic">
+        <div key={comic.id} className="comic-infos">
           <div>
-            <p>Ajouter en favoris</p>
-            {/* <GoHeartFill className="icon" /> */}
-            <TiHeartOutline className="icon" />
+            <img src={comic.thumbnail} alt="comic image" />
+          </div>
+          <div className="comic-details">
+            <p>{comic.description}</p>
+            <div className="comic-favorite">
+              <p>Ajouter en favoris</p>
+              {/* <GoHeartFill className="icon" /> */}
+              <TiHeartOutline className="icon" />
+            </div>
           </div>
         </div>
       </section>

@@ -1,0 +1,40 @@
+.comic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+}
+
+.comic-infos {
+  display: flex;
+  justify-content: space-between;
+}
+
+.comic-infos img {
+  width: 200px;
+}
+
+.comic-name {
+  color: white;
+}
+
+.comic-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.comic-details p {
+  color: white;
+  font-size: 20px;
+}
+
+.comic-favorite {
+  display: flex;
+  justify-content: space-between;
+}
+
+.comic-favorite p {
+  color: #ed1d23;
+}

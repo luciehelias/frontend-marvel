@@ -1,11 +1,10 @@
 .search-bar {
-  background-color: wheat;
-  padding: 5px 10px;
-  width: 200px;
+  background-color: white;
+  padding: 10px 15px;
+  width: 250px;
   display: flex;
-  align-items: center;
   border-radius: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .search-icon {
@@ -17,4 +16,8 @@
   background: none;
   border: none;
   width: 90%;
+}
+
+.search-bar input:focus {
+  outline: none;
 }
