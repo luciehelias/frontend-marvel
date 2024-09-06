@@ -5,6 +5,7 @@ import { GoHeartFill } from "react-icons/go";
 import { TiHeartOutline } from "react-icons/ti";
 
 import Card from "../Components/Card";
+import "../Styles/Character.css";
 
 const Character = () => {
   const [isLoading, setIsLoading] = useState(true);

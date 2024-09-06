@@ -62,32 +62,6 @@ const CharacterList = () => {
         {characters.length > 0 ? (
           characters.map((character) => (
             <Card element={character} name="character" />
-
-            // {/* TO DELETE IF CARD WORKS */}
-            // <div key={character.id}>
-            //   <Link to={`/character/${character.id}`}>
-            //     <div className="character">
-            //       <div className="character-card">
-            //         <div>
-            //           <img
-            //             src={character.thumbnail}
-            //             alt="photo du personnage"
-            //           />
-            //         </div>
-            //         <div className="character-infos">
-            //           <h2>{character.name}</h2>
-            //           <p className="character-description">
-            //             {character.description}
-            //           </p>
-            //           <div className="character-favorite">
-            //             <p>Ajouter en favoris</p>
-            //             <GoHeartFill className="icon" />
-            //           </div>
-            //         </div>
-            //       </div>
-            //     </div>
-            //   </Link>
-            // </div>
           ))
         ) : (
           <p>Aucun personnage ne correspond à votre recherche.</p>
