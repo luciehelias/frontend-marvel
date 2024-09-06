@@ -7,34 +7,33 @@ import Card from "../Components/Card";
 
 const Character = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [character, setCharacter] = useState();
-  const [characterComics, setCharacterComics] = useState();
+  const [character, setCharacter] = useState("");
+  const [characterComics, setCharacterComics] = useState("");
   const { id } = useParams();
 
   useEffect(() => {
-    const fetchCharacter = async () => {
+    const fetchData = async () => {
+      setIsLoading(true);
+
       try {
-        const response = await axios.get(
+        const characterResponse = await axios.get(
           `http://localhost:3000/character/${id}`
         );
-        setCharacter(response.data);
+        setCharacter(characterResponse.data);
+
+        const comicsResponse = await axios.get(
+          `http://localhost:3000/comics/${id}`
+        );
+        setCharacterComics(comicsResponse.data);
+        console.log(characterComics);
       } catch (error) {
         console.log(error.response);
       }
+
+      setIsLoading(false);
     };
 
-    const fetchCharacterComics = async () => {
-      try {
-        const response = await axios.get(`http://localhost:3000/comics/${id}`);
-        setCharacterComics(response.data);
-      } catch (error) {
-        console.log(error.response);
-      }
-    };
-    setIsLoading(true);
-    fetchCharacterComics();
-    fetchCharacter();
-    setIsLoading(false);
+    fetchData();
   }, [id]);
 
   return isLoading ? (
@@ -58,7 +57,7 @@ const Character = () => {
         </div>
       </section>
       <section>
-        {characterComics.map((comic) => (
+        {characterComics.comics.map((comic) => (
           <Card element={comic} name="comic" />
         ))}
       </section>

@@ -11,7 +11,7 @@ const Card = ({ element, name }) => {
               <img src={element.thumbnail} alt={`photo du ${name}`} />
             </div>
             <div className="card-infos">
-              <h2>{element.name}</h2>
+              <h2>{name === "character" ? element.name : element.title}</h2>
               <p className="card-description">{element.description}</p>
               <div className="card-favorite">
                 <p>Ajouter en favoris</p>

@@ -7,10 +7,8 @@ import SearchBar from "../Components/SearchBar";
 import Card from "../Components/Card";
 
 const CharacterList = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  // REMETTRE LE USESTATE à TRUE
-
-  const [characters, setCharacters] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [characters, setCharacters] = useState([]);
   const [searchCharacter, setSearchCharacter] = useState("");
   const limit = 100;
   const [pageNumber, setPageNumber] = useState(1);
@@ -31,19 +29,19 @@ const CharacterList = () => {
 
       try {
         const response = await axios.get(
-          `http://localhost:3000/characters${
-            searchCharacter ? `?name=${searchCharacter}` : ""
-          }?limit=${limit}?skip=${skip}`
+          `http://localhost:3000/characters?${
+            searchCharacter ? `name=${searchCharacter}&` : ""
+          }&limit=${limit}&skip=${skip}`
         );
+        console.log(response);
         setCharacters(response.data);
         setIsLoading(false);
       } catch (error) {
         console.log(error.response);
       }
     };
-    // fetchData();
-    // DECOMMENTER
-  }, [searchCharacter]);
+    fetchData();
+  }, [searchCharacter, pageNumber]);
 
   return isLoading ? (
     <span>En cours de chargement</span>
@@ -61,7 +59,7 @@ const CharacterList = () => {
       <h1>Personnages</h1>
       <SearchBar setSearchElement={setSearchCharacter} name="personnage" />
       <section>
-        {characters.length ? (
+        {characters.length > 0 ? (
           characters.map((character) => (
             <Card element={character} name="character" />
 
