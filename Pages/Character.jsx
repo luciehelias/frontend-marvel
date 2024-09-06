@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { GoHeartFill } from "react-icons/go";
 import { TiHeartOutline } from "react-icons/ti";
+import { AiFillThunderbolt } from "react-icons/ai";
 
 import Card from "../Components/Card";
 import "../Styles/Character.css";
@@ -42,24 +43,24 @@ const Character = () => {
     <span>En cours de chargement</span>
   ) : (
     <main>
-      <h1>Personnage</h1>
-      <section>
-        <div key={character.id}>
-          <div>
-            <img src={character.thumbnail} alt="" />
+      <h1 className="character-name">{character.name}</h1>
+      <section className="character">
+        <div key={character.id} className="character-infos">
+          <div className="character-infos-image">
+            <img
+              src={character.thumbnail}
+              alt={`l'image de ${character.name}`}
+            />
+            <TiHeartOutline className="icon" />
+            {/* <GoHeartFill className="icon" /> */}
           </div>
-          <div>
-            <h2>{character.name}</h2>
-            <p>{character.description}</p>
-          </div>
-        </div>
-        <div>
-          <p>Ajouter en favoris</p>
-          {/* <GoHeartFill className="icon" /> */}
-          <TiHeartOutline className="icon" />
         </div>
       </section>
-      <section>
+      <h2 className="character-comics-title">
+        Retrouve moi dans les meilleurs comics ci-dessous
+        <AiFillThunderbolt className="thunderbolt" />
+      </h2>
+      <section className="character-comics-slider">
         {characterComics.map((comic) => (
           <Card element={comic} name="comic" />
         ))}
