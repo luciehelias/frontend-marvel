@@ -31,7 +31,7 @@ const CharacterList = () => {
 
       try {
         const response = await axios.get(
-          `http://localhost:3000/characters?${
+          `https://site--backend-marvel--4fybfkwcyn9l.code.run/characters?${
             searchCharacter ? `name=${searchCharacter}&` : ""
           }&limit=${limit}&skip=${skip}`
         );

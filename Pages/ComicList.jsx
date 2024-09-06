@@ -33,7 +33,7 @@ const ComicList = () => {
 
       try {
         const response = await axios.get(
-          `http://localhost:3000/comics?${
+          `https://site--backend-marvel--4fybfkwcyn9l.code.run/comics?${
             searchComic ? `name=${searchComic}&` : ""
           }&limit=${limit}&skip=${skip}`
         );

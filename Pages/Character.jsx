@@ -21,12 +21,12 @@ const Character = () => {
 
       try {
         const characterResponse = await axios.get(
-          `http://localhost:3000/character/${id}`
+          `https://site--backend-marvel--4fybfkwcyn9l.code.run/comics/${id}`
         );
         setCharacter(characterResponse.data);
 
         const comicsResponse = await axios.get(
-          `http://localhost:3000/comics/${id}`
+          `hhttps://site--backend-marvel--4fybfkwcyn9l.code.run/comics/${id}`
         );
         setCharacterComics(comicsResponse.data);
         console.log(comicsResponse.data);
