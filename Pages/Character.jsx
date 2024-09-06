@@ -21,15 +21,15 @@ const Character = () => {
 
       try {
         const characterResponse = await axios.get(
-          `https://site--backend-marvel--4fybfkwcyn9l.code.run/comics/${id}`
+          `https://site--backend-marvel--4fybfkwcyn9l.code.run/character/${id}`
         );
         setCharacter(characterResponse.data);
 
         const comicsResponse = await axios.get(
-          `hhttps://site--backend-marvel--4fybfkwcyn9l.code.run/comics/${id}`
+          `https://site--backend-marvel--4fybfkwcyn9l.code.run/comics/${id}`
         );
+
         setCharacterComics(comicsResponse.data);
-        console.log(comicsResponse.data);
       } catch (error) {
         console.log(error.response);
       }
@@ -71,8 +71,8 @@ const Character = () => {
         <AiFillThunderbolt className="thunderbolt" />
       </h2>
       <section className="character-comics-slider">
-        {characterComics.map((comic) => (
-          <Card element={comic} name="comic" />
+        {characterComics?.map((comic) => (
+          <Card element={comic} name="comic" key={comic.id} />
         ))}
       </section>
     </main>

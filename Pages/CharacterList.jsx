@@ -35,7 +35,6 @@ const CharacterList = () => {
             searchCharacter ? `name=${searchCharacter}&` : ""
           }&limit=${limit}&skip=${skip}`
         );
-        console.log(response);
         setCharacters(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -54,7 +53,7 @@ const CharacterList = () => {
       <section className="card-list">
         {characters.length > 0 ? (
           characters.map((character) => (
-            <Card element={character} name="character" />
+            <Card element={character} name="character" key={character.id} />
           ))
         ) : (
           <div className="no-result">
