@@ -6,6 +6,8 @@ import "../Styles/Card.css";
 import SearchBar from "../Components/SearchBar";
 import Card from "../Components/Card";
 
+import Deadpool from "../src/assets/Deadpool.png";
+
 const ComicList = () => {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -57,11 +59,18 @@ const ComicList = () => {
     <main>
       <h1>Comics</h1>
       <SearchBar setSearchElement={setSearchComic} name="comic" />
-      <section>
+      <section className="card-list">
         {comics.length > 0 ? (
           comics.map((comic) => <Card element={comic} name="comic" />)
         ) : (
-          <p>Aucun comic ne correspond à votre recherche.</p>
+          <div className="no-result">
+            <p>
+              Es-tu sûr ? Je n'ai pas de
+              <span> {searchComic}</span> dans mon répertoire de comics trop
+              cool !
+            </p>
+            <img src={Deadpool} alt="deadpool" />
+          </div>
         )}
       </section>
       <div className="pagination">
@@ -73,7 +82,11 @@ const ComicList = () => {
             <p>{`Page ${pageNumber}`}</p>
           </>
         )}
-        <button onClick={() => handlePageNumber("next")}>Page suivante </button>
+        {comics.length > 0 && (
+          <button onClick={() => handlePageNumber("next")}>
+            Page suivante{" "}
+          </button>
+        )}
       </div>
     </main>
   );

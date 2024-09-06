@@ -6,6 +6,8 @@ import "../Styles/Card.css";
 import SearchBar from "../Components/SearchBar";
 import Card from "../Components/Card";
 
+import Deadpool from "../src/assets/Deadpool.png";
+
 const CharacterList = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [characters, setCharacters] = useState([]);
@@ -47,24 +49,21 @@ const CharacterList = () => {
     <span>En cours de chargement</span>
   ) : (
     <main>
-      {/* TO DELETE IF SEARCH BAR WORKS */}
-      {/* <div className="character-search-bar">
-        <FaSearch className="search-icon" />
-        <input
-        type="text"
-        placeholder="Recherche des articles"
-        onChange={(e) => setSearchCharacter(e.target.value)}
-        />
-      </div> */}
       <h1>Personnages</h1>
       <SearchBar setSearchElement={setSearchCharacter} name="personnage" />
-      <section>
+      <section className="card-list">
         {characters.length > 0 ? (
           characters.map((character) => (
             <Card element={character} name="character" />
           ))
         ) : (
-          <p>Aucun personnage ne correspond à votre recherche.</p>
+          <div className="no-result">
+            <p>
+              Es-tu sûr ? Je n'ai pas de <span>{searchCharacter}</span> dans mes
+              amis !
+            </p>
+            <img src={Deadpool} alt="deadpool" />
+          </div>
         )}
       </section>
       <div className="pagination">
@@ -76,7 +75,11 @@ const CharacterList = () => {
             <p>{`Page ${pageNumber}`}</p>
           </>
         )}
-        <button onClick={() => handlePageNumber("next")}>Page suivante </button>
+        {characters.length > 0 && (
+          <button onClick={() => handlePageNumber("next")}>
+            Page suivante{" "}
+          </button>
+        )}
       </div>
     </main>
   );
