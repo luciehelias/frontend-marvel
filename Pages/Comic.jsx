@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { GoHeartFill } from "react-icons/go";
+import { TiHeartOutline } from "react-icons/ti";
 
 const Comic = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -35,7 +36,8 @@ const Comic = () => {
           </div>
           <div>
             <p>Ajouter en favoris</p>
-            <GoHeartFill className="header-icon" />
+            {/* <GoHeartFill className="icon" /> */}
+            <TiHeartOutline className="icon" />
           </div>
         </div>
       </section>

@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { GoHeartFill } from "react-icons/go";
+import { TiHeartOutline } from "react-icons/ti";
 
 import Card from "../Components/Card";
 
@@ -25,7 +26,7 @@ const Character = () => {
           `http://localhost:3000/comics/${id}`
         );
         setCharacterComics(comicsResponse.data);
-        console.log(characterComics);
+        console.log(comicsResponse.data);
       } catch (error) {
         console.log(error.response);
       }
@@ -53,11 +54,12 @@ const Character = () => {
         </div>
         <div>
           <p>Ajouter en favoris</p>
-          <GoHeartFill className="icon" />
+          {/* <GoHeartFill className="icon" /> */}
+          <TiHeartOutline className="icon" />
         </div>
       </section>
       <section>
-        {characterComics.comics.map((comic) => (
+        {characterComics.map((comic) => (
           <Card element={comic} name="comic" />
         ))}
       </section>

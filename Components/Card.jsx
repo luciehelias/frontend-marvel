@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { GoHeartFill } from "react-icons/go";
+import { TiHeartOutline } from "react-icons/ti";
 
 const Card = ({ element, name }) => {
   return (
@@ -15,7 +16,8 @@ const Card = ({ element, name }) => {
               <p className="card-description">{element.description}</p>
               <div className="card-favorite">
                 <p>Ajouter en favoris</p>
-                <GoHeartFill className="icon" />
+                {/* <GoHeartFill className="icon" /> */}
+                <TiHeartOutline className="icon" />
               </div>
             </div>
           </div>
