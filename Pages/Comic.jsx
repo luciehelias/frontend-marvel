@@ -10,6 +10,7 @@ const Comic = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [comic, setComic] = useState();
   const { id } = useParams();
+  const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,8 +39,17 @@ const Comic = () => {
             <p>{comic.description}</p>
             <div className="comic-favorite">
               <p>Ajouter en favoris</p>
-              {/* <GoHeartFill className="icon" /> */}
-              <TiHeartOutline className="icon" />
+              {isFavorite === true ? (
+                <GoHeartFill
+                  className="icon"
+                  onClick={() => setIsFavorite(!isFavorite)}
+                />
+              ) : (
+                <TiHeartOutline
+                  className="icon"
+                  onClick={() => setIsFavorite(!isFavorite)}
+                />
+              )}
             </div>
           </div>
         </div>

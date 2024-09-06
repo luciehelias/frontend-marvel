@@ -32,12 +32,6 @@ const ComicList = () => {
       const skip = (pageNumber - 1) * limit;
 
       try {
-        // const response = await axios.get(
-        //   `{http://localhost:3000/comics?${
-        //     searchComic ? `?name=${searchComic}` : ""
-        //   }?limit=${limit}?skip=${skip}`
-        // );
-
         const response = await axios.get(
           `http://localhost:3000/comics?${
             searchComic ? `name=${searchComic}&` : ""

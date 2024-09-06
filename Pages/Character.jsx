@@ -13,6 +13,7 @@ const Character = () => {
   const [character, setCharacter] = useState("");
   const [characterComics, setCharacterComics] = useState("");
   const { id } = useParams();
+  const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -51,8 +52,17 @@ const Character = () => {
               src={character.thumbnail}
               alt={`l'image de ${character.name}`}
             />
-            <TiHeartOutline className="icon" />
-            {/* <GoHeartFill className="icon" /> */}
+            {isFavorite === true ? (
+              <GoHeartFill
+                className="icon"
+                onClick={() => setIsFavorite(!isFavorite)}
+              />
+            ) : (
+              <TiHeartOutline
+                className="icon"
+                onClick={() => setIsFavorite(!isFavorite)}
+              />
+            )}
           </div>
         </div>
       </section>
