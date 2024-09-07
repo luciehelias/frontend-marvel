@@ -8,7 +8,12 @@ import { AiFillThunderbolt } from "react-icons/ai";
 import Card from "../Components/Card";
 import "../Styles/Character.css";
 
-const Character = () => {
+const Character = ({
+  favoriteCharacter,
+  handleFavoriteCharacter,
+  favoriteComic,
+  handleFavoriteComic,
+}) => {
   const [isLoading, setIsLoading] = useState(true);
   const [character, setCharacter] = useState("");
   const [characterComics, setCharacterComics] = useState("");
@@ -40,28 +45,35 @@ const Character = () => {
     fetchData();
   }, [id]);
 
+  useEffect(() => {
+    if (favoriteCharacter.includes(character._id)) {
+      setIsFavorite(true);
+    } else {
+      setIsFavorite(false);
+    }
+  }, [favoriteCharacter, character._id]);
+
+  const toggleFavorite = () => {
+    handleFavoriteCharacter(character._id);
+    setIsFavorite(!isFavorite);
+  };
+
   return isLoading ? (
     <span>En cours de chargement</span>
   ) : (
     <main>
       <h1 className="character-name">{character.name}</h1>
       <section className="character">
-        <div key={character.id} className="character-infos">
+        <div key={character._id} className="character-infos">
           <div className="character-infos-image">
             <img
               src={character.thumbnail}
               alt={`l'image de ${character.name}`}
             />
             {isFavorite === true ? (
-              <GoHeartFill
-                className="icon"
-                onClick={() => setIsFavorite(!isFavorite)}
-              />
+              <GoHeartFill className="icon" onClick={toggleFavorite} />
             ) : (
-              <TiHeartOutline
-                className="icon"
-                onClick={() => setIsFavorite(!isFavorite)}
-              />
+              <TiHeartOutline className="icon" onClick={toggleFavorite} />
             )}
           </div>
         </div>
@@ -72,7 +84,13 @@ const Character = () => {
       </h2>
       <section className="character-comics-slider">
         {characterComics?.map((comic) => (
-          <Card element={comic} name="comic" key={comic.id} />
+          <Card
+            element={comic}
+            name="comic"
+            key={comic.id}
+            favoriteComic={favoriteComic}
+            handleFavoriteComic={handleFavoriteComic}
+          />
         ))}
       </section>
     </main>
