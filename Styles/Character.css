@@ -55,6 +55,25 @@
   margin-left: 10px;
 }
 
+@media (max-width: 1300px) {
+  .character-comics-slider {
+    max-width: 900px;
+  }
+}
+
+@media (max-width: 930px) {
+  .character-comics-slider {
+    max-width: 600px;
+  }
+
+  .character-comics-title {
+    font-size: 26px;
+    margin-bottom: 40px;
+    text-align: center;
+    padding: 0 30px;
+  }
+}
+
 @media (max-width: 600px) {
   .character-comics-slider {
     gap: 20px;
