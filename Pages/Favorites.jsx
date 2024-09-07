@@ -52,7 +52,7 @@ const Favorites = ({
   return isLoading ? (
     <span>En cours de chargement</span>
   ) : (
-    <main>
+    <main className="favorite">
       <h1>Vos personnages favoris</h1>
       <section className="card-list">
         {characters.length > 0 ? (

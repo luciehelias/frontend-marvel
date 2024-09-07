@@ -128,4 +128,9 @@ a {
   .card-list {
     gap: 20px;
   }
+
+  .favorite h1 {
+    text-align: center;
+    color: white;
+  }
 }

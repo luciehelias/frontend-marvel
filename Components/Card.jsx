@@ -48,7 +48,9 @@ const Card = ({
             </Link>
           </div>
           <div className="card-infos">
-            <h2>{name === "character" ? element.name : element.title}</h2>
+            <Link to={`/${name}/${element.id || element._id}`}>
+              <h2>{name === "character" ? element.name : element.title}</h2>
+            </Link>
             <p className="card-description">{element.description}</p>
             <div className="card-favorite">
               <p>Ajouter en favoris</p>
