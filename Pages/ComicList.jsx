@@ -5,6 +5,7 @@ import "../Styles/Card.css";
 
 import SearchBar from "../Components/SearchBar";
 import Card from "../Components/Card";
+import Loading from "../Components/Loading";
 
 import Deadpool from "../src/assets/Deadpool.png";
 
@@ -48,7 +49,7 @@ const ComicList = ({ favoriteComic, handleFavoriteComic }) => {
   }, [searchComic, pageNumber]);
 
   return isLoading ? (
-    <span>En cours de chargement</span>
+    <Loading />
   ) : (
     <main>
       <h1>Comics</h1>

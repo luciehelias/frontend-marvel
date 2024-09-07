@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 import Card from "../Components/Card";
+import Loading from "../Components/Loading";
 
 const Favorites = ({
   favoriteCharacter,
@@ -18,12 +19,10 @@ const Favorites = ({
       const comicsList = [];
       const charactersList = [];
       for (let i = 0; i < favoriteComic.length; i++) {
-        console.log(favoriteComic[i]);
         try {
           const response = await axios.get(
             `https://site--backend-marvel--4fybfkwcyn9l.code.run/comic/${favoriteComic[i]}`
           );
-          console.log(response);
           const comicInfo = response.data;
           comicsList.push(comicInfo);
         } catch (error) {
@@ -31,7 +30,6 @@ const Favorites = ({
         }
       }
       for (let i = 0; i < favoriteCharacter.length; i++) {
-        console.log(favoriteCharacter[i]);
         try {
           const response = await axios.get(
             `https://site--backend-marvel--4fybfkwcyn9l.code.run/character/${favoriteCharacter[i]}`
@@ -50,7 +48,7 @@ const Favorites = ({
   }, [favoriteCharacter, favoriteComic]);
 
   return isLoading ? (
-    <span>En cours de chargement</span>
+    <Loading />
   ) : (
     <main className="favorite">
       <h1>Vos personnages favoris</h1>

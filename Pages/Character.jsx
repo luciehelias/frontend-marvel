@@ -5,6 +5,7 @@ import { GoHeartFill } from "react-icons/go";
 import { TiHeartOutline } from "react-icons/ti";
 import { AiFillThunderbolt } from "react-icons/ai";
 
+import Loading from "../Components/Loading";
 import Card from "../Components/Card";
 import "../Styles/Character.css";
 
@@ -59,7 +60,7 @@ const Character = ({
   };
 
   return isLoading ? (
-    <span>En cours de chargement</span>
+    <Loading />
   ) : (
     <main>
       <h1 className="character-name">{character.name}</h1>

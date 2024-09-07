@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import { GoHeartFill } from "react-icons/go";
 import { TiHeartOutline } from "react-icons/ti";
 
+import Loading from "../Components/Loading";
+
 import "../Styles/Comic.css";
 
 const Comic = ({ favoriteComic, handleFavoriteComic }) => {
@@ -41,7 +43,7 @@ const Comic = ({ favoriteComic, handleFavoriteComic }) => {
   };
 
   return isLoading ? (
-    <span>En cours de chargement</span>
+    <Loading />
   ) : (
     <main>
       <h1 className="comic-name">{comic.title}</h1>
