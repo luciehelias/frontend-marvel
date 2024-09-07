@@ -5,6 +5,10 @@
   margin-bottom: 40px;
 }
 
+.character-name {
+  color: white;
+}
+
 .character-infos {
   display: flex;
   flex-direction: column;
@@ -49,8 +53,4 @@
   color: yellow;
   font-size: 26px;
   margin-left: 10px;
-}
-
-.character-name {
-  color: white;
 }
