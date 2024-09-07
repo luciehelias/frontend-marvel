@@ -1,7 +1,6 @@
 import "../Styles/Header.css";
 import logo from "../src/assets/logo.svg";
 import { GoHeartFill } from "react-icons/go";
-import { TiHeartOutline } from "react-icons/ti";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -11,8 +10,7 @@ const Header = () => {
         <button>Connecte-toi</button>
         <Link to={"/favorites"} className="header-favorite">
           <p>Favoris</p>
-          {/* <GoHeartFill className="icon" /> */}
-          <TiHeartOutline className="icon" />
+          <GoHeartFill className="icon" />
         </Link>
       </div>
       <Link to={"/"}>
