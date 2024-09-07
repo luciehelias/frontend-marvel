@@ -15,9 +15,7 @@
 }
 
 .card-elements h2 {
-  color: #ed1d23;
   margin-bottom: 30px;
-  font-size: 20px;
 }
 
 .card-image img {
@@ -50,4 +48,35 @@
 
 .card-favorite p {
   color: #ed1d23;
+}
+
+@media (max-width: 1300px) {
+  .card {
+    width: 400px;
+    height: 220px;
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    width: 300px;
+    /* height: 220px; */
+    padding: 10px;
+  }
+
+  .card-infos {
+    padding: 5px;
+  }
+
+  .card-elements h2 {
+    margin-bottom: 15px;
+  }
+
+  .card-description {
+    margin-bottom: 15px;
+  }
+
+  .card-image img {
+    margin-right: 10px;
+  }
 }

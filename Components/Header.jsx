@@ -7,10 +7,10 @@ const Header = () => {
   return (
     <header>
       <div className="header-connect">
-        <button>Connecte-toi</button>
+        {/* <button>Connecte-toi</button> */}
         <Link to={"/favorites"} className="header-favorite">
           <p>Favoris</p>
-          <GoHeartFill className="icon" />
+          <GoHeartFill className="header-icon" />
         </Link>
       </div>
       <Link to={"/"}>

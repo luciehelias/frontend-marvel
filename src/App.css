@@ -13,22 +13,28 @@ main {
   flex-direction: column;
   margin: 0 auto;
   width: 1280px;
+  padding: 0 40px;
   justify-content: center;
   align-items: center;
 }
 
-main h1 {
+h1 {
   font-size: 60px;
   color: #ed1d23;
   margin: 40px 0;
 }
 
-a {
-  text-decoration: none;
-}
-
 h2 {
   color: #ed1d23;
+  font-size: 20px;
+}
+
+p {
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
 }
 
 .icon {
@@ -39,7 +45,6 @@ h2 {
 .pagination p {
   color: white;
   margin: 0px 20px;
-  font-size: 16px;
 }
 
 .pagination button {
@@ -89,4 +94,38 @@ h2 {
 .no-result span {
   color: #ed1d23;
   text-transform: uppercase;
+}
+
+@media (max-width: 1300px) {
+  main {
+    width: auto;
+  }
+}
+
+@media (max-width: 1000px) {
+  h1 {
+    font-size: 36px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  h2 {
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 12px;
+  }
+
+  .card-list {
+    gap: 20px;
+  }
 }

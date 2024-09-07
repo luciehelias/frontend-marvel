@@ -54,3 +54,19 @@
   font-size: 26px;
   margin-left: 10px;
 }
+
+@media (max-width: 600px) {
+  .character-comics-slider {
+    gap: 20px;
+    padding: 10px;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  .character-comics-title {
+    font-size: 26px;
+    margin-bottom: 40px;
+    text-align: center;
+    padding: 0 20px;
+  }
+}

@@ -3,7 +3,7 @@ import "../Styles/Footer.css";
 const Footer = () => {
   return (
     <footer>
-      <h1>
+      <p>
         Made at {""}
         <a
           href="https://www.lereacteur.io/"
@@ -20,7 +20,7 @@ const Footer = () => {
         >
           Lucie Hélias
         </a>
-      </h1>
+      </p>
     </footer>
   );
 };

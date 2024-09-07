@@ -1,7 +1,7 @@
 header {
   display: flex;
   align-items: center;
-  height: 180px;
+  height: 120px;
   justify-content: space-between;
   padding: 20px 40px;
   background-color: black;
@@ -13,7 +13,7 @@ header button {
   border: none;
   padding: 10px 20px;
   color: white;
-  font-size: 20px;
+  font-size: 18px;
   transition: transform 0.3s ease;
   cursor: pointer;
 }
@@ -23,8 +23,8 @@ header button:hover {
 }
 
 .header-logo {
-  height: 180px;
-  width: 350px;
+  height: 100px;
+  width: 250px;
   object-fit: contain;
   background-color: black;
 }
@@ -33,7 +33,7 @@ header nav {
   display: flex;
   gap: 40px;
   color: #ed1d23;
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .header-icon {
@@ -64,5 +64,45 @@ header nav {
 
 .header-favorite p {
   margin-right: 20px;
-  font-size: 20px;
+}
+
+@media (max-width: 800px) {
+  .header-logo {
+    height: 80px;
+  }
+
+  .header-connect {
+    gap: 10px;
+  }
+
+  .header-icon {
+    font-size: 18px;
+  }
+
+  header nav {
+    flex-direction: column;
+    gap: 20px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header-favorite p {
+    font-size: 16px;
+  }
+
+  .header-logo {
+    height: 60px;
+    width: 140px;
+  }
+
+  header {
+    padding: 10px 15px;
+    height: 80px;
+  }
+
+  header nav {
+    gap: 10px;
+    font-size: 14px;
+  }
 }

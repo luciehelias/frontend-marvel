@@ -27,14 +27,32 @@
 
 .comic-details p {
   color: white;
-  font-size: 20px;
 }
 
 .comic-favorite {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .comic-favorite p {
   color: #ed1d23;
+}
+
+@media (max-width: 1000px) {
+  .comic {
+    width: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .comic-infos {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .comic-favorite {
+    margin-top: 10px;
+  }
 }
