@@ -6,7 +6,7 @@ import { TiHeartOutline } from "react-icons/ti";
 
 import "../Styles/Comic.css";
 
-const Comic = () => {
+const Comic = ({ favoriteComic, handleFavoriteComic }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [comic, setComic] = useState();
   const { id } = useParams();
@@ -27,6 +27,19 @@ const Comic = () => {
     fetchData();
   }, [id]);
 
+  useEffect(() => {
+    if (favoriteComic.includes(id)) {
+      setIsFavorite(true);
+    } else {
+      setIsFavorite(false);
+    }
+  }, [favoriteComic, id]);
+
+  const toggleFavorite = () => {
+    handleFavoriteComic(id);
+    setIsFavorite(!isFavorite);
+  };
+
   return isLoading ? (
     <span>En cours de chargement</span>
   ) : (
@@ -42,15 +55,9 @@ const Comic = () => {
             <div className="comic-favorite">
               <p>Ajouter en favoris</p>
               {isFavorite === true ? (
-                <GoHeartFill
-                  className="icon"
-                  onClick={() => setIsFavorite(!isFavorite)}
-                />
+                <GoHeartFill className="icon" onClick={toggleFavorite} />
               ) : (
-                <TiHeartOutline
-                  className="icon"
-                  onClick={() => setIsFavorite(!isFavorite)}
-                />
+                <TiHeartOutline className="icon" onClick={toggleFavorite} />
               )}
             </div>
           </div>

@@ -8,7 +8,7 @@ import Card from "../Components/Card";
 
 import Deadpool from "../src/assets/Deadpool.png";
 
-const CharacterList = () => {
+const CharacterList = ({ favoriteCharacter, handleFavoriteCharacter }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [characters, setCharacters] = useState([]);
   const [searchCharacter, setSearchCharacter] = useState("");
@@ -53,7 +53,13 @@ const CharacterList = () => {
       <section className="card-list">
         {characters.length > 0 ? (
           characters.map((character) => (
-            <Card element={character} name="character" key={character.id} />
+            <Card
+              element={character}
+              name="character"
+              key={character.id}
+              favoriteCharacter={favoriteCharacter}
+              handleFavoriteCharacter={handleFavoriteCharacter}
+            />
           ))
         ) : (
           <div className="no-result">

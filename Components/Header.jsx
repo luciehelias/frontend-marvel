@@ -9,13 +9,15 @@ const Header = () => {
     <header>
       <div className="header-connect">
         <button>Connecte-toi</button>
-        <div className="header-favorite">
+        <Link to={"/favorites"} className="header-favorite">
           <p>Favoris</p>
           {/* <GoHeartFill className="icon" /> */}
           <TiHeartOutline className="icon" />
-        </div>
+        </Link>
       </div>
-      <img src={logo} alt="logo marvel" className="header-logo" />
+      <Link to={"/"}>
+        <img src={logo} alt="logo marvel" className="header-logo" />
+      </Link>
       <nav>
         <Link to={"/characters"} className="header-link">
           <span>Personnages</span>
