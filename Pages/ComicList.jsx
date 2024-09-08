@@ -6,8 +6,8 @@ import "../Styles/Card.css";
 import SearchBar from "../Components/SearchBar";
 import Card from "../Components/Card";
 import Loading from "../Components/Loading";
-
-import Deadpool from "../src/assets/Deadpool.png";
+import Pagination from "../Components/Pagination";
+import NoResult from "../Components/NoResult";
 
 const ComicList = ({ favoriteComic, handleFavoriteComic }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -66,31 +66,14 @@ const ComicList = ({ favoriteComic, handleFavoriteComic }) => {
             />
           ))
         ) : (
-          <div className="no-result">
-            <p>
-              Es-tu sûr ? Je n'ai pas de
-              <span> {searchComic}</span> dans mon répertoire de comics trop
-              cool !
-            </p>
-            <img src={Deadpool} alt="deadpool" />
-          </div>
+          <NoResult searchElement={searchComic} type={"comic"} />
         )}
       </section>
-      <div className="pagination">
-        {pageNumber > 1 && (
-          <>
-            <button onClick={() => handlePageNumber("previous")}>
-              Page précedente
-            </button>
-            <p>{`Page ${pageNumber}`}</p>
-          </>
-        )}
-        {comics.length > 0 && (
-          <button onClick={() => handlePageNumber("next")}>
-            Page suivante{" "}
-          </button>
-        )}
-      </div>
+      <Pagination
+        handlePageNumber={handlePageNumber}
+        pageNumber={pageNumber}
+        arraySize={comics.length}
+      />
     </main>
   );
 };

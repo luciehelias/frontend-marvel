@@ -6,8 +6,8 @@ import "../Styles/Card.css";
 import SearchBar from "../Components/SearchBar";
 import Card from "../Components/Card";
 import Loading from "../Components/Loading";
-
-import Deadpool from "../src/assets/Deadpool.png";
+import Pagination from "../Components/Pagination";
+import NoResult from "../Components/NoResult";
 
 const CharacterList = ({ favoriteCharacter, handleFavoriteCharacter }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -63,30 +63,14 @@ const CharacterList = ({ favoriteCharacter, handleFavoriteCharacter }) => {
             />
           ))
         ) : (
-          <div className="no-result">
-            <p>
-              Es-tu sûr ? Je n'ai pas de <span>{searchCharacter}</span> dans mes
-              amis !
-            </p>
-            <img src={Deadpool} alt="deadpool" />
-          </div>
+          <NoResult searchElement={searchCharacter} type={"character"} />
         )}
       </section>
-      <div className="pagination">
-        {pageNumber > 1 && (
-          <>
-            <button onClick={() => handlePageNumber("previous")}>
-              Page précedente
-            </button>
-            <p>{`Page ${pageNumber}`}</p>
-          </>
-        )}
-        {characters.length > 0 && (
-          <button onClick={() => handlePageNumber("next")}>
-            Page suivante{" "}
-          </button>
-        )}
-      </div>
+      <Pagination
+        handlePageNumber={handlePageNumber}
+        pageNumber={pageNumber}
+        arraySize={characters.length}
+      />
     </main>
   );
 };
