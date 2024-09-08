@@ -3,6 +3,7 @@ import axios from "axios";
 
 import Card from "../Components/Card";
 import Loading from "../Components/Loading";
+import NoResult from "../Components/NoResult";
 
 const Favorites = ({
   favoriteCharacter,
@@ -64,9 +65,7 @@ const Favorites = ({
             />
           ))
         ) : (
-          <div className="no-result">
-            <p>Pas encore de personnages en favoris</p>
-          </div>
+          <NoResult type="favorite" searchElement="personnages" />
         )}
       </section>
       <h1>Vos comics favoris</h1>
@@ -82,9 +81,7 @@ const Favorites = ({
             />
           ))
         ) : (
-          <div className="no-result">
-            <p>Pas encore de comics en favoris</p>
-          </div>
+          <NoResult type="favorite" searchElement="comics" />
         )}
       </section>
     </main>

@@ -66,7 +66,7 @@ const ComicList = ({ favoriteComic, handleFavoriteComic }) => {
             />
           ))
         ) : (
-          <NoResult searchElement={searchComic} type={"comic"} />
+          <NoResult searchElement={searchComic} type="comic" />
         )}
       </section>
       <Pagination

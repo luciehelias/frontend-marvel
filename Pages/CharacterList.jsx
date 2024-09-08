@@ -63,7 +63,7 @@ const CharacterList = ({ favoriteCharacter, handleFavoriteCharacter }) => {
             />
           ))
         ) : (
-          <NoResult searchElement={searchCharacter} type={"character"} />
+          <NoResult searchElement={searchCharacter} type="character" />
         )}
       </section>
       <Pagination
