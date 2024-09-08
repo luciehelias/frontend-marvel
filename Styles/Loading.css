@@ -1,0 +1,16 @@
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.loading p {
+  color: white;
+  padding: 40px;
+  font-size: 40px;
+}
+
+.loading img {
+  height: 100px;
+}
